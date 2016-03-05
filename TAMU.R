@@ -1,4 +1,6 @@
 require(xlsx)
+require(dplyr)
+
 rm(list=ls(all=TRUE))
 
 filename <- "MasterWide_StudyVI_TestScores_Sample.xlsx"
@@ -33,6 +35,8 @@ data_pre <- data.frame(Condition = raw_data$Condition.Name,
                        eq_problem6_box     = raw_data$Pre.Test.eq_problem6_box,
                        eq_problem7_box     = raw_data$Pre.Test.eq_problem7_box)
 
+data_pre <- mutate(data_pre, total = rowSums(data_pre[4:22]))
+
 data_post <- data.frame(Condition = raw_data$Condition.Name,
                         School    = raw_data$School,
                         Class     = raw_data$Class,
@@ -55,3 +59,8 @@ data_post <- data.frame(Condition = raw_data$Condition.Name,
                         eq_problem5_box     = raw_data$Post.Test.eq_problem5_box,
                         eq_problem6_box     = raw_data$Post.Test.eq_problem6_box,
                         eq_problem7_box     = raw_data$Post.Test.eq_problem7_box)
+
+data_pre <- mutate(data_pre, total = rowSums(data_pre[4:22]))
+
+print(table(data_pre$Condition))
+print(table(data_post$Condition))
