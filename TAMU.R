@@ -46,28 +46,114 @@ data_pre <- data.frame(Condition = raw_data$Condition.Name,
                             eq_problem8    = as.character(raw_data$Pre.Test.eq_problem8_box),
                             eq_problem9    = as.character(raw_data$Pre.Test.eq_problem9_box))
 
-data_pre$problem1_opt_1 <- factor(data_pre$problem1_opt_1, levels(data_pre$problem1_opt_1)[c(3,1,2)])
-data_pre$problem1_opt_2 <- factor(data_pre$problem1_opt_1, levels(data_pre$problem1_opt_2)[c(3,1,2)])
-data_pre$problem1_opt_3 <- factor(data_pre$problem1_opt_1, levels(data_pre$problem1_opt_3)[c(3,1,2)])
-data_pre$problem1_opt_4 <- factor(data_pre$problem1_opt_1, levels(data_pre$problem1_opt_4)[c(3,1,2)])
-data_pre$problem1_opt_5 <- factor(data_pre$problem1_opt_1, levels(data_pre$problem1_opt_5)[c(3,1,2)])
-data_pre$problem1_opt_6 <- factor(data_pre$problem1_opt_1, levels(data_pre$problem1_opt_6)[c(3,1,2)])
-data_pre$problem2_opt_1 <- factor(data_pre$problem2_opt_1, levels(data_pre$problem2_opt_1)[c(3,1,2)])
-data_pre$problem2_opt_2 <- factor(data_pre$problem2_opt_1, levels(data_pre$problem2_opt_2)[c(3,1,2)])
-data_pre$problem2_opt_3 <- factor(data_pre$problem2_opt_1, levels(data_pre$problem2_opt_3)[c(3,1,2)])
-data_pre$problem2_opt_4 <- factor(data_pre$problem2_opt_1, levels(data_pre$problem2_opt_4)[c(3,1,2)])
-data_pre$problem2_opt_5 <- factor(data_pre$problem2_opt_1, levels(data_pre$problem2_opt_5)[c(3,1,2)])
-data_pre$problem2_opt_6 <- factor(data_pre$problem2_opt_1, levels(data_pre$problem2_opt_6)[c(3,1,2)])
-data_pre$eq_problem1    <- factor(data_pre$eq_problem1, levels(data_pre$eq_problem1)[c(3,1,2)])
-data_pre$eq_problem2    <- factor(data_pre$eq_problem2, levels(data_pre$eq_problem2)[c(3,1,2)])
-data_pre$eq_problem3    <- factor(data_pre$eq_problem3, levels(data_pre$eq_problem3)[c(3,1,2)])
-data_pre$eq_problem4    <- factor(data_pre$eq_problem4, levels(data_pre$eq_problem4)[c(3,1,2)])
-data_pre$eq_problem5    <- factor(data_pre$eq_problem5, levels(data_pre$eq_problem5)[c(3,1,2)])
-data_pre$eq_problem6    <- factor(data_pre$eq_problem6, levels(data_pre$eq_problem6)[c(3,1,2)])
-data_pre$eq_problem7    <- factor(data_pre$eq_problem7, levels(data_pre$eq_problem7)[c(3,1,2)])
-data_pre$eq_problem8    <- factor(data_pre$eq_problem7, levels(data_pre$eq_problem8)[c(3,1,2)])
-data_pre$eq_problem9    <- factor(data_pre$eq_problem7, levels(data_pre$eq_problem9)[c(3,1,2)])
+# Convert numbers to their meaning
+data_pre$problem1_opt_1 <- gsub("-1","incorrect", data_pre$problem1_opt_1)
+data_pre$problem1_opt_1 <- gsub("0","unknown", data_pre$problem1_opt_1)
+data_pre$problem1_opt_1 <- gsub("1","correct", data_pre$problem1_opt_1)
 
+data_pre$problem1_opt_2 <- gsub("-1","incorrect", data_pre$problem1_opt_2)
+data_pre$problem1_opt_2 <- gsub("0","unknown", data_pre$problem1_opt_2)
+data_pre$problem1_opt_2 <- gsub("1","correct", data_pre$problem1_opt_2)
+
+data_pre$problem1_opt_3 <- gsub("-1","incorrect", data_pre$problem1_opt_3)
+data_pre$problem1_opt_3 <- gsub("0","unknown", data_pre$problem1_opt_3)
+data_pre$problem1_opt_3 <- gsub("1","correct", data_pre$problem1_opt_3)
+
+data_pre$problem1_opt_4 <- gsub("-1","incorrect", data_pre$problem1_opt_4)
+data_pre$problem1_opt_4 <- gsub("0","unknown", data_pre$problem1_opt_4)
+data_pre$problem1_opt_4 <- gsub("1","correct", data_pre$problem1_opt_4)
+
+data_pre$problem1_opt_5 <- gsub("-1","incorrect", data_pre$problem1_opt_5)
+data_pre$problem1_opt_5 <- gsub("0","unknown", data_pre$problem1_opt_5)
+data_pre$problem1_opt_5 <- gsub("1","correct", data_pre$problem1_opt_5)
+
+data_pre$problem1_opt_6 <- gsub("-1","incorrect", data_pre$problem1_opt_6)
+data_pre$problem1_opt_6 <- gsub("0","unknown", data_pre$problem1_opt_6)
+data_pre$problem1_opt_6 <- gsub("1","correct", data_pre$problem1_opt_6)
+
+data_pre$problem2_opt_1 <- gsub("-1","incorrect", data_pre$problem2_opt_1)
+data_pre$problem2_opt_1 <- gsub("0","unknown", data_pre$problem2_opt_1)
+data_pre$problem2_opt_1 <- gsub("1","correct", data_pre$problem2_opt_1)
+
+data_pre$problem2_opt_2 <- gsub("-1","incorrect", data_pre$problem2_opt_2)
+data_pre$problem2_opt_2 <- gsub("0","unknown", data_pre$problem2_opt_2)
+data_pre$problem2_opt_2 <- gsub("1","correct", data_pre$problem2_opt_2)
+
+data_pre$problem2_opt_3 <- gsub("-1","incorrect", data_pre$problem2_opt_3)
+data_pre$problem2_opt_3 <- gsub("0","unknown", data_pre$problem2_opt_3)
+data_pre$problem2_opt_3 <- gsub("1","correct", data_pre$problem2_opt_3)
+
+data_pre$problem2_opt_4 <- gsub("-1","incorrect", data_pre$problem2_opt_4)
+data_pre$problem2_opt_4 <- gsub("0","unknown", data_pre$problem2_opt_4)
+data_pre$problem2_opt_4 <- gsub("1","correct", data_pre$problem2_opt_4)
+
+data_pre$problem2_opt_5 <- gsub("-1","incorrect", data_pre$problem2_opt_5)
+data_pre$problem2_opt_5 <- gsub("0","unknown", data_pre$problem2_opt_5)
+data_pre$problem2_opt_5 <- gsub("1","correct", data_pre$problem2_opt_5)
+
+data_pre$problem2_opt_6 <- gsub("-1","incorrect", data_pre$problem2_opt_6)
+data_pre$problem2_opt_6 <- gsub("0","unknown", data_pre$problem2_opt_6)
+data_pre$problem2_opt_6 <- gsub("1","correct", data_pre$problem2_opt_6)
+
+data_pre$eq_problem1 <- gsub("-1","incorrect", data_pre$eq_problem1)
+data_pre$eq_problem1 <- gsub("0","unknown", data_pre$eq_problem1)
+data_pre$eq_problem1 <- gsub("1","correct", data_pre$eq_problem1)
+
+data_pre$eq_problem2 <- gsub("-1","incorrect", data_pre$eq_problem2)
+data_pre$eq_problem2 <- gsub("0","unknown", data_pre$eq_problem2)
+data_pre$eq_problem2 <- gsub("1","correct", data_pre$eq_problem2)
+
+data_pre$eq_problem3 <- gsub("-1","incorrect", data_pre$eq_problem3)
+data_pre$eq_problem3 <- gsub("0","unknown", data_pre$eq_problem3)
+data_pre$eq_problem3 <- gsub("1","correct", data_pre$eq_problem3)
+
+data_pre$eq_problem4 <- gsub("-1","incorrect", data_pre$eq_problem4)
+data_pre$eq_problem4 <- gsub("0","unknown", data_pre$eq_problem4)
+data_pre$eq_problem4 <- gsub("1","correct", data_pre$eq_problem4)
+
+data_pre$eq_problem5 <- gsub("-1","incorrect", data_pre$eq_problem5)
+data_pre$eq_problem5 <- gsub("0","unknown", data_pre$eq_problem5)
+data_pre$eq_problem5 <- gsub("1","correct", data_pre$eq_problem5)
+
+data_pre$eq_problem6 <- gsub("-1","incorrect", data_pre$eq_problem6)
+data_pre$eq_problem6 <- gsub("0","unknown", data_pre$eq_problem6)
+data_pre$eq_problem6 <- gsub("1","correct", data_pre$eq_problem6)
+
+data_pre$eq_problem7 <- gsub("-1","incorrect", data_pre$eq_problem7)
+data_pre$eq_problem7 <- gsub("0","unknown", data_pre$eq_problem7)
+data_pre$eq_problem7 <- gsub("1","correct", data_pre$eq_problem7)
+
+data_pre$eq_problem8 <- gsub("-1","incorrect", data_pre$eq_problem8)
+data_pre$eq_problem8 <- gsub("0","unknown", data_pre$eq_problem8)
+data_pre$eq_problem8 <- gsub("1","correct", data_pre$eq_problem8)
+
+data_pre$eq_problem9 <- gsub("-1","incorrect", data_pre$eq_problem9)
+data_pre$eq_problem9 <- gsub("0","unknown", data_pre$eq_problem9)
+data_pre$eq_problem9 <- gsub("1","correct", data_pre$eq_problem9)
+
+# Convert to factor and adjust levels.
+data_pre$problem1_opt_1 <- factor(data_pre$problem1_opt_1, ordered=TRUE, levels = c("incorrect","unknown","correct"))
+data_pre$problem1_opt_2 <- factor(data_pre$problem1_opt_2, ordered=TRUE, levels = c("incorrect","unknown","correct"))
+data_pre$problem1_opt_3 <- factor(data_pre$problem1_opt_3, ordered=TRUE, levels = c("incorrect","unknown","correct"))
+data_pre$problem1_opt_4 <- factor(data_pre$problem1_opt_4, ordered=TRUE, levels = c("incorrect","unknown","correct"))
+data_pre$problem1_opt_5 <- factor(data_pre$problem1_opt_5, ordered=TRUE, levels = c("incorrect","unknown","correct"))
+data_pre$problem1_opt_6 <- factor(data_pre$problem1_opt_6, ordered=TRUE, levels = c("incorrect","unknown","correct"))
+data_pre$problem2_opt_1 <- factor(data_pre$problem2_opt_1, ordered=TRUE, levels = c("incorrect","unknown","correct"))
+data_pre$problem2_opt_2 <- factor(data_pre$problem2_opt_2, ordered=TRUE, levels = c("incorrect","unknown","correct"))
+data_pre$problem2_opt_3 <- factor(data_pre$problem2_opt_3, ordered=TRUE, levels = c("incorrect","unknown","correct"))
+data_pre$problem2_opt_4 <- factor(data_pre$problem2_opt_4, ordered=TRUE, levels = c("incorrect","unknown","correct"))
+data_pre$problem2_opt_5 <- factor(data_pre$problem2_opt_5, ordered=TRUE, levels = c("incorrect","unknown","correct"))
+data_pre$problem2_opt_6 <- factor(data_pre$problem2_opt_6, ordered=TRUE, levels = c("incorrect","unknown","correct"))
+data_pre$eq_problem1    <- factor(data_pre$eq_problem1, ordered=TRUE, levels = c("incorrect","unknown","correct"))
+data_pre$eq_problem2    <- factor(data_pre$eq_problem2, ordered=TRUE, levels = c("incorrect","unknown","correct"))
+data_pre$eq_problem3    <- factor(data_pre$eq_problem3, ordered=TRUE, levels = c("incorrect","unknown","correct"))
+data_pre$eq_problem4    <- factor(data_pre$eq_problem4, ordered=TRUE, levels = c("incorrect","unknown","correct"))
+data_pre$eq_problem5    <- factor(data_pre$eq_problem5, ordered=TRUE, levels = c("incorrect","unknown","correct"))
+data_pre$eq_problem6    <- factor(data_pre$eq_problem6, ordered=TRUE, levels = c("incorrect","unknown","correct"))
+data_pre$eq_problem7    <- factor(data_pre$eq_problem7, ordered=TRUE, levels = c("incorrect","unknown","correct"))
+data_pre$eq_problem8    <- factor(data_pre$eq_problem8, ordered=TRUE, levels = c("incorrect","unknown","correct"))
+data_pre$eq_problem9    <- factor(data_pre$eq_problem9, ordered=TRUE, levels = c("incorrect","unknown","correct"))
+#####################################################################################################
 data_post <- data.frame(Condition = raw_data$Condition.Name,
                         School    = raw_data$School,
                         Class     = raw_data$Class,
@@ -93,36 +179,143 @@ data_post <- data.frame(Condition = raw_data$Condition.Name,
                         eq_problem8    = as.character(raw_data$Post.Test.eq_problem8_box),
                         eq_problem9    = as.character(raw_data$Post.Test.eq_problem9_box))
 
-data_post$problem1_opt_1 <- factor(data_post$problem1_opt_1, levels(data_post$problem1_opt_1)[c(3,1,2)])
-data_post$problem1_opt_2 <- factor(data_post$problem1_opt_1, levels(data_post$problem1_opt_2)[c(3,1,2)])
-data_post$problem1_opt_3 <- factor(data_post$problem1_opt_1, levels(data_post$problem1_opt_3)[c(3,1,2)])
-data_post$problem1_opt_4 <- factor(data_post$problem1_opt_1, levels(data_post$problem1_opt_4)[c(3,1,2)])
-data_post$problem1_opt_5 <- factor(data_post$problem1_opt_1, levels(data_post$problem1_opt_5)[c(3,1,2)])
-data_post$problem1_opt_6 <- factor(data_post$problem1_opt_1, levels(data_post$problem1_opt_6)[c(3,1,2)])
-data_post$problem2_opt_1 <- factor(data_post$problem2_opt_1, levels(data_post$problem2_opt_1)[c(3,1,2)])
-data_post$problem2_opt_2 <- factor(data_post$problem2_opt_1, levels(data_post$problem2_opt_2)[c(3,1,2)])
-data_post$problem2_opt_3 <- factor(data_post$problem2_opt_1, levels(data_post$problem2_opt_3)[c(3,1,2)])
-data_post$problem2_opt_4 <- factor(data_post$problem2_opt_1, levels(data_post$problem2_opt_4)[c(3,1,2)])
-data_post$problem2_opt_5 <- factor(data_post$problem2_opt_1, levels(data_post$problem2_opt_5)[c(3,1,2)])
-data_post$problem2_opt_6 <- factor(data_post$problem2_opt_1, levels(data_post$problem2_opt_6)[c(3,1,2)])
-data_post$eq_problem1    <- factor(data_post$eq_problem1, levels(data_post$eq_problem1)[c(3,1,2)])
-data_post$eq_problem2    <- factor(data_post$eq_problem2, levels(data_post$eq_problem2)[c(3,1,2)])
-data_post$eq_problem3    <- factor(data_post$eq_problem3, levels(data_post$eq_problem3)[c(3,1,2)])
-data_post$eq_problem4    <- factor(data_post$eq_problem4, levels(data_post$eq_problem4)[c(3,1,2)])
-data_post$eq_problem5    <- factor(data_post$eq_problem5, levels(data_post$eq_problem5)[c(3,1,2)])
-data_post$eq_problem6    <- factor(data_post$eq_problem6, levels(data_post$eq_problem6)[c(3,1,2)])
-data_post$eq_problem7    <- factor(data_post$eq_problem7, levels(data_post$eq_problem7)[c(3,1,2)])
-data_post$eq_problem8    <- factor(data_post$eq_problem7, levels(data_post$eq_problem8)[c(3,1,2)])
-data_post$eq_problem9    <- factor(data_post$eq_problem7, levels(data_post$eq_problem9)[c(3,1,2)])
+data_post$problem1_opt_1 <- gsub("-1","incorrect", data_post$problem1_opt_1)
+data_post$problem1_opt_1 <- gsub("0","unknown", data_post$problem1_opt_1)
+data_post$problem1_opt_1 <- gsub("1","correct", data_post$problem1_opt_1)
 
+data_post$problem1_opt_2 <- gsub("-1","incorrect", data_post$problem1_opt_2)
+data_post$problem1_opt_2 <- gsub("0","unknown", data_post$problem1_opt_2)
+data_post$problem1_opt_2 <- gsub("1","correct", data_post$problem1_opt_2)
+
+data_post$problem1_opt_3 <- gsub("-1","incorrect", data_post$problem1_opt_3)
+data_post$problem1_opt_3 <- gsub("0","unknown", data_post$problem1_opt_3)
+data_post$problem1_opt_3 <- gsub("1","correct", data_post$problem1_opt_3)
+
+data_post$problem1_opt_4 <- gsub("-1","incorrect", data_post$problem1_opt_4)
+data_post$problem1_opt_4 <- gsub("0","unknown", data_post$problem1_opt_4)
+data_post$problem1_opt_4 <- gsub("1","correct", data_post$problem1_opt_4)
+
+data_post$problem1_opt_5 <- gsub("-1","incorrect", data_post$problem1_opt_5)
+data_post$problem1_opt_5 <- gsub("0","unknown", data_post$problem1_opt_5)
+data_post$problem1_opt_5 <- gsub("1","correct", data_post$problem1_opt_5)
+
+data_post$problem1_opt_6 <- gsub("-1","incorrect", data_post$problem1_opt_6)
+data_post$problem1_opt_6 <- gsub("0","unknown", data_post$problem1_opt_6)
+data_post$problem1_opt_6 <- gsub("1","correct", data_post$problem1_opt_6)
+
+data_post$problem2_opt_1 <- gsub("-1","incorrect", data_post$problem2_opt_1)
+data_post$problem2_opt_1 <- gsub("0","unknown", data_post$problem2_opt_1)
+data_post$problem2_opt_1 <- gsub("1","correct", data_post$problem2_opt_1)
+
+data_post$problem2_opt_2 <- gsub("-1","incorrect", data_post$problem2_opt_2)
+data_post$problem2_opt_2 <- gsub("0","unknown", data_post$problem2_opt_2)
+data_post$problem2_opt_2 <- gsub("1","correct", data_post$problem2_opt_2)
+
+data_post$problem2_opt_3 <- gsub("-1","incorrect", data_post$problem2_opt_3)
+data_post$problem2_opt_3 <- gsub("0","unknown", data_post$problem2_opt_3)
+data_post$problem2_opt_3 <- gsub("1","correct", data_post$problem2_opt_3)
+
+data_post$problem2_opt_4 <- gsub("-1","incorrect", data_post$problem2_opt_4)
+data_post$problem2_opt_4 <- gsub("0","unknown", data_post$problem2_opt_4)
+data_post$problem2_opt_4 <- gsub("1","correct", data_post$problem2_opt_4)
+
+data_post$problem2_opt_5 <- gsub("-1","incorrect", data_post$problem2_opt_5)
+data_post$problem2_opt_5 <- gsub("0","unknown", data_post$problem2_opt_5)
+data_post$problem2_opt_5 <- gsub("1","correct", data_post$problem2_opt_5)
+
+data_post$problem2_opt_6 <- gsub("-1","incorrect", data_post$problem2_opt_6)
+data_post$problem2_opt_6 <- gsub("0","unknown", data_post$problem2_opt_6)
+data_post$problem2_opt_6 <- gsub("1","correct", data_post$problem2_opt_6)
+
+data_post$eq_problem1 <- gsub("-1","incorrect", data_post$eq_problem1)
+data_post$eq_problem1 <- gsub("0","unknown", data_post$eq_problem1)
+data_post$eq_problem1 <- gsub("1","correct", data_post$eq_problem1)
+
+data_post$eq_problem2 <- gsub("-1","incorrect", data_post$eq_problem2)
+data_post$eq_problem2 <- gsub("0","unknown", data_post$eq_problem2)
+data_post$eq_problem2 <- gsub("1","correct", data_post$eq_problem2)
+
+data_post$eq_problem3 <- gsub("-1","incorrect", data_post$eq_problem3)
+data_post$eq_problem3 <- gsub("0","unknown", data_post$eq_problem3)
+data_post$eq_problem3 <- gsub("1","correct", data_post$eq_problem3)
+
+data_post$eq_problem4 <- gsub("-1","incorrect", data_post$eq_problem4)
+data_post$eq_problem4 <- gsub("0","unknown", data_post$eq_problem4)
+data_post$eq_problem4 <- gsub("1","correct", data_post$eq_problem4)
+
+data_post$eq_problem5 <- gsub("-1","incorrect", data_post$eq_problem5)
+data_post$eq_problem5 <- gsub("0","unknown", data_post$eq_problem5)
+data_post$eq_problem5 <- gsub("1","correct", data_post$eq_problem5)
+
+data_post$eq_problem6 <- gsub("-1","incorrect", data_post$eq_problem6)
+data_post$eq_problem6 <- gsub("0","unknown", data_post$eq_problem6)
+data_post$eq_problem6 <- gsub("1","correct", data_post$eq_problem6)
+
+data_post$eq_problem7 <- gsub("-1","incorrect", data_post$eq_problem7)
+data_post$eq_problem7 <- gsub("0","unknown", data_post$eq_problem7)
+data_post$eq_problem7 <- gsub("1","correct", data_post$eq_problem7)
+
+data_post$eq_problem8 <- gsub("-1","incorrect", data_post$eq_problem8)
+data_post$eq_problem8 <- gsub("0","unknown", data_post$eq_problem8)
+data_post$eq_problem8 <- gsub("1","correct", data_post$eq_problem8)
+
+data_post$eq_problem9 <- gsub("-1","incorrect", data_post$eq_problem9)
+data_post$eq_problem9 <- gsub("0","unknown", data_post$eq_problem9)
+data_post$eq_problem9 <- gsub("1","correct", data_post$eq_problem9)
+
+data_post$problem1_opt_1 <- factor(data_post$problem1_opt_1, ordered=TRUE, levels = c("incorrect","unknown","correct"))
+data_post$problem1_opt_2 <- factor(data_post$problem1_opt_2, ordered=TRUE, levels = c("incorrect","unknown","correct"))
+data_post$problem1_opt_3 <- factor(data_post$problem1_opt_3, ordered=TRUE, levels = c("incorrect","unknown","correct"))
+data_post$problem1_opt_4 <- factor(data_post$problem1_opt_4, ordered=TRUE, levels = c("incorrect","unknown","correct"))
+data_post$problem1_opt_5 <- factor(data_post$problem1_opt_5, ordered=TRUE, levels = c("incorrect","unknown","correct"))
+data_post$problem1_opt_6 <- factor(data_post$problem1_opt_6, ordered=TRUE, levels = c("incorrect","unknown","correct"))
+data_post$problem2_opt_1 <- factor(data_post$problem2_opt_1, ordered=TRUE, levels = c("incorrect","unknown","correct"))
+data_post$problem2_opt_2 <- factor(data_post$problem2_opt_2, ordered=TRUE, levels = c("incorrect","unknown","correct"))
+data_post$problem2_opt_3 <- factor(data_post$problem2_opt_3, ordered=TRUE, levels = c("incorrect","unknown","correct"))
+data_post$problem2_opt_4 <- factor(data_post$problem2_opt_4, ordered=TRUE, levels = c("incorrect","unknown","correct"))
+data_post$problem2_opt_5 <- factor(data_post$problem2_opt_5, ordered=TRUE, levels = c("incorrect","unknown","correct"))
+data_post$problem2_opt_6 <- factor(data_post$problem2_opt_6, ordered=TRUE, levels = c("incorrect","unknown","correct"))
+data_post$eq_problem1    <- factor(data_post$eq_problem1, ordered=TRUE, levels = c("incorrect","unknown","correct"))
+data_post$eq_problem2    <- factor(data_post$eq_problem2, ordered=TRUE, levels = c("incorrect","unknown","correct"))
+data_post$eq_problem3    <- factor(data_post$eq_problem3, ordered=TRUE, levels = c("incorrect","unknown","correct"))
+data_post$eq_problem4    <- factor(data_post$eq_problem4, ordered=TRUE, levels = c("incorrect","unknown","correct"))
+data_post$eq_problem5    <- factor(data_post$eq_problem5, ordered=TRUE, levels = c("incorrect","unknown","correct"))
+data_post$eq_problem6    <- factor(data_post$eq_problem6, ordered=TRUE, levels = c("incorrect","unknown","correct"))
+data_post$eq_problem7    <- factor(data_post$eq_problem7, ordered=TRUE, levels = c("incorrect","unknown","correct"))
+data_post$eq_problem8    <- factor(data_post$eq_problem7, ordered=TRUE, levels = c("incorrect","unknown","correct"))
+data_post$eq_problem9    <- factor(data_post$eq_problem7, ordered=TRUE, levels = c("incorrect","unknown","correct"))
 
 # data_pre <- mutate(data_pre, total = rowSums(data_pre[4:22]))
 # data_pre <- mutate(data_pre, total = rowSums(data_pre[4:22]))
 
 print(table(data_pre$Condition))
 print(table(data_post$Condition))
+###########################################################################
+# Create Likert objects, grouped by Condition.
+# Too many rows for all items.  Break by the 3 problems.
 
-# Convert the numbers 0, -1, and 1 to their meaning "unknown", "incorrect", and "correct".
+problem_1_pre <- select(data_pre, Condition, problem1_opt_1, problem1_opt_2, problem1_opt_3,
+                                             problem1_opt_4, problem1_opt_5, problem1_opt_6)
+problem_1_pre_likert <- likert(problem_1_pre[2:7], grouping = problem_1_pre$Condition)
+plot(problem_1_pre_likert, center=2.5, ggtitle = "Problem 1, pre-test")
+ggsave(filename = "Problem_1_pre.png") 
+
+problem_2_pre <- select(data_pre, Condition, problem2_opt_1, problem2_opt_2, problem2_opt_3,
+                        problem2_opt_4, problem2_opt_5, problem2_opt_6)
+problem_2_pre_likert <- likert(problem_2_pre[2:7], grouping = problem_2_pre$Condition)
+plot(problem_2_pre_likert, center=2.5, ggtitle = "Problem 2, pre-test")
+ggsave(filename = "Problem_2_pre.png")
+
+eq_problem_pre <- select(data_pre, Condition, eq_problem1, eq_problem2, eq_problem3,
+                         eq_problem4, eq_problem5, eq_problem6, eq_problem7, eq_problem8, eq_problem9)
+eq_problem_pre_likert <- likert(eq_problem_pre[2:10], grouping = eq_problem_pre$Condition)
+plot(eq_problem_pre_likert, center=2.5, ggtitle = "Eq Problem, pre-test")
+ggsave(filename = "Eq_Problem_pre.png", height=10)
+
+
+
+
+
 
 # Create heatmaps for different levels of aggregation.  We start with the conditions "MetaTutor", "MetaTutorC", and "MetaTutorMC"
 # and keep only the column for conditions
